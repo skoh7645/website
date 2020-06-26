@@ -38,10 +38,10 @@
       path: /docs/stacks/publish
     - title: Stack lifecycle
       path: /docs/stacks/lifecycle
-- title: CLI Reference
-  path: /docs/cli-commands
 - title: Reference
   items:
+    - title: CLI Commands
+      path: /docs/reference/cli-commands
     - title: Traceability Metadata
       path: /docs/reference/metadata
     - title: Environment Variables

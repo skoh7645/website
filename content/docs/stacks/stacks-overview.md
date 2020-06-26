@@ -57,21 +57,21 @@ Appsody stacks belong to one of three categories, depending on their stability l
 
 ### Experimental
 These stacks are not production-ready and are considered as proof of concept. They might be unstable, and subject to breaking changes. Experimental stacks must meet the following criteria:
-- Adhere to the Appsody stack structure (i.e. [appsody stack lint](/docs/cli-commands#appsody-stack-lint) passes without errors)
-- Support the [appsody init](/docs/cli-commands#appsody-init), [appsody run](/docs/cli-commands#appsody-run), and [appsody build](/docs/cli-commands#appsody-build) commands
+- Adhere to the Appsody stack structure (i.e. [appsody stack lint](/docs/reference/cli-commands#appsody-stack-lint) passes without errors)
+- Support the [appsody init](/docs/reference/cli-commands#appsody-init), [appsody run](/docs/reference/cli-commands#appsody-run), and [appsody build](/docs/reference/cli-commands#appsody-build) commands
 
 ### Incubator
 These stacks are not production-ready and require further development to satisfy the stable criteria. Incubator stacks must meet all the criteria set for experimental stacks and the following additional items:
 - Maintainers must remain active in terms of contributions and reviews
-- Support the [appsody test](/docs/cli-commands#appsody-test) and [appsody deploy](/docs/cli-commands#appsody-deploy) commands
+- Support the [appsody test](/docs/reference/cli-commands#appsody-test) and [appsody deploy](/docs/reference/cli-commands#appsody-deploy) commands
 - Document the limitations of the stack in the `README.md`
 
 ### Stable
 These stacks are production-ready. Stable stacks must meet all the criteria set for experimental and incubator stacks, and the following additional items:
-- Support all [Appsody CLI commands](/docs/cli-commands)
-- Pass the [appsody stack validate](/docs/cli-commands#appsody-stack-validate) and integration tests, on all three operating systems that are supported by Appsody without errors. For example, the stack must not bind mount individual files as it is not supported on Windows
+- Support all [Appsody CLI commands](/docs/reference/cli-commands)
+- Pass the [appsody stack validate](/docs/reference/cli-commands#appsody-stack-validate) and integration tests, on all three operating systems that are supported by Appsody without errors. For example, the stack must not bind mount individual files as it is not supported on Windows
 - Specify the minimum Appsody, Docker, and Buildah versions required in the `stack.yaml`
-- Support the [appsody build](/docs/cli-commands#appsody-build) command with Buildah
+- Support the [appsody build](/docs/reference/cli-commands#appsody-build) command with Buildah
 - Prevent creation of files on the local system that cannot be removed (i.e. files owned by root or other users)
 - Specify explicit versions for all required Docker images
 - Do not introduce any version changes to the content provided by the parent container images (for example: `yum upgrade`, `apt-get dist-upgrade`, `npm audit fix`). If a package contained in the parent image is out of date, contact its maintainers or update it individually.
@@ -98,7 +98,7 @@ Below are the URLs for official Appsody repository releases.
 | `incubator`    | `https://github.com/appsody/stacks/releases/latest/download/incubator-index.yaml`    |
 | `experimental` | `https://github.com/appsody/stacks/releases/latest/download/experimental-index.yaml` |
 
-By default, Appsody comes with the `incubator` and `experimental` repositories. Other repositories can be added by running the [`appsody repo add`](/docs/cli-commands/#appsody-repo-add) command.
+By default, Appsody comes with the `incubator` and `experimental` repositories. Other repositories can be added by running the [`appsody repo add`](/docs/reference/cli-commands/#appsody-repo-add) command.
 
 ## Contributing to a stack
 

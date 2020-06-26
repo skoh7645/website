@@ -21,7 +21,7 @@ exports.createPages = ({ actions, graphql }) => {
   // The CLI reference has moved and is now a top level menu item
   createRedirect({
     fromPath: `/docs/using-appsody/cli-commands`,
-    toPath: `/docs/cli-commands`,
+    toPath: `/docs/reference/cli-commands`,
     isPermanent: true
   });
 
@@ -74,6 +74,12 @@ exports.createPages = ({ actions, graphql }) => {
     isPermanent: true
   });
     
+  // The CLI reference has moved and is now under the reference section
+  createRedirect({
+    fromPath: `/docs/cli-commands`,
+    toPath: `/docs/reference/cli-commands`,
+    isPermanent: true
+  });
 
   const docTemplate = path.resolve(`src/templates/docTemplate.js`);
   const blogTemplate = path.resolve(`src/templates/blogTemplate.js`);
