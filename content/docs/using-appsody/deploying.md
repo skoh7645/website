@@ -5,7 +5,7 @@ title: Getting ready to deploy your Appsody project
 # Getting ready to deploy your Appsody project
 When you've finished the development work for your Appsody project, you will have a containerized application that's ready to deploy to a suitable runtime infrastructure such as a cloud platform that hosts a Kubernetes cluster.
 
-The Appsody CLI provides the [appsody deploy](/docs/cli-commands/#appsody-deploy) command to build and deploy a Docker image directly to a Kubernetes cluster that you are using for testing or staging.
+The Appsody CLI provides the [appsody deploy](/docs/reference/cli-commands/#appsody-deploy) command to build and deploy a Docker image directly to a Kubernetes cluster that you are using for testing or staging.
 
 The deployment manifest for your project (`app-deploy.yaml`) is created or updated when you run `appsody build` or `appsody deploy`. The Appsody CLI uses deployment information from the stack and adds various [traceability metadata](/docs/reference/metadata) while generating this manifest.  You can edit this file to suit your application and store it under source control. If you want to quickly obtain the deployment manifest without having to build or deploy your application, run the `appsody deploy --generate-only` command.
 
@@ -17,7 +17,7 @@ These deployment options are covered in more detail in the following sections.
 ## Deploying your application to a Kubernetes cluster
 There are many options to deploy your Appsody applications to a Kubernetes cluster. The best approach depends on the specific scenario:
 - If you intend to deploy your application on a shared cluster for integration testing or production, you are probably going to rely on CI/CD pipelines. In this case, the application is built and deployed from its source.
-- If you are testing your application on a locally installed cluster, you would want to use [appsody deploy](/docs/cli-commands/#appsody-deploy).
+- If you are testing your application on a locally installed cluster, you would want to use [appsody deploy](/docs/reference/cli-commands/#appsody-deploy).
 
 If your development workstation has a Kubernetes cluster installed, you can use your local Docker image cache instead of pushing the image to Docker Hub. To do this, you need to configure your Kubernetes cluster to use images from the local Docker [cache](https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images).
 
@@ -40,7 +40,7 @@ If you issue `appsody deploy` without explicitly tagging the image, you end up w
 
 To ensure the latest version of your application is pushed to the cluster, use the `-t` flag to add a unique tag every time you redeploy your application. Kubernetes then detects a change in the deployment manifest, and pushes your application to the cluster again. For example: `appsody deploy -t dev.local/my-image:0.x`, where x is a number that you increment every time you redeploy.
 
-> If you are running multiple Appsody projects on your workstation, you can use the [appsody deploy](/docs/cli-commands/#appsody-deploy) and [appsody operator](/docs/cli-commands/#appsody-operator) commands to deploy them to a Kubernetes cluster. However, do not run these commands concurrently as they create temporary files that might lead to conflicts.
+> If you are running multiple Appsody projects on your workstation, you can use the [appsody deploy](/docs/reference/cli-commands/#appsody-deploy) and [appsody operator](/docs/reference/cli-commands/#appsody-operator) commands to deploy them to a Kubernetes cluster. However, do not run these commands concurrently as they create temporary files that might lead to conflicts.
 
 ### Deployment via the Appsody Operator
 Kubernetes operators offer a powerful way to provide full lifecycle maintenance of a wide range of resources on Kubernetes clusters. In particular, they can install, upgrade, remove, and monitor application deployments. The recently published [Appsody operator](https://operatorhub.io/operator/appsody-operator) automates the installation and maintenance of a special type of Custom Resource Definitions (CRDs), called **AppsodyApplication**.
